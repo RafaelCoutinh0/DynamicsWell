@@ -20,19 +20,19 @@ zf_names = [
     'P_intake_3', 'dP_bcs_3',
     'P_intake_4', 'dP_bcs_4'
 ]
-# === GERAR DADOS DE SIMULAÇÃO ===
-print("Executando simulação para obter dados...")
-n_pert = 10  # número de perturbações (ajustável)
-Lista_xf_reshaped, Lista_zf_reshaped = plotar_graficos(n_pert)  # isso popula Lista_xf_reshaped e Lista_zf_reshaped
-
+pasta_simulacao = f'Simulações/Sim_AC_CC'
+# Abrir os arquivos
+xf = np.load(os.path.join(pasta_simulacao, 'xf.npy'), allow_pickle=True)
+zf = np.load(os.path.join(pasta_simulacao, 'zf.npy'), allow_pickle=True)
+entradas = np.load(os.path.join(pasta_simulacao, 'Entradas.npy'), allow_pickle=True)
 # === CRIAR DATAFRAME ===
-def criar_dataframe(Lista_xf_reshaped, Lista_zf_reshaped):
-    all_data = np.vstack([Lista_xf_reshaped, Lista_zf_reshaped])
+def criar_dataframe(xf, zf):
+    all_data = np.vstack([xf, zf])
     all_names = xf_names + zf_names
     df = pd.DataFrame(all_data.T, columns=all_names)
     return df
 
-df = criar_dataframe(Lista_xf_reshaped, Lista_zf_reshaped)
+df = criar_dataframe(xf, zf)
 # === AUTOCORRELAÇÃO ===
 import matplotlib.pyplot as plt
 def plot_autocorrelacoes(df):

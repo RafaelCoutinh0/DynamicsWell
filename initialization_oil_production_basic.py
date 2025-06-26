@@ -274,7 +274,8 @@ def plotar_graficos(n_pert):
         z0 = res["zf"][:, -1]
         map_est.append(x0)
         map_est.append(z0)
-
+        Inputs = []
+        Inputs.append(u0)
         Lista_xf_reshaped = np.hstack((Lista_xf_reshaped, np.array(res["xf"])))
         Lista_zf_reshaped = np.hstack((Lista_zf_reshaped, np.array(res["zf"])))
 
@@ -302,4 +303,4 @@ def plotar_graficos(n_pert):
 
     # p_intake é desnecessário
     # Auto_plot(Lista_zf_reshaped[[0, 2, 4, 6], :],"Pressão de Entrada BCS", 'Time/(h)', 'Pressure/(bar)', 'c')
-    return Lista_xf_reshaped, Lista_zf_reshaped
+    return Lista_xf_reshaped, Lista_zf_reshaped, Inputs
