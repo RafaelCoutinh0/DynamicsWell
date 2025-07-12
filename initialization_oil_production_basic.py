@@ -218,7 +218,7 @@ x_ss = y_ss[0:-8]
 dae = {'x': vertcat(*x), 'z': vertcat(*z), 'p': vertcat(*u), 'ode': vertcat(*mani_model[0:-8]),
        'alg': vertcat(*mani_model[-8:])}
 
-tfinal = 1000 # [h]
+tfinal = 1000 # [s]
 qtd_pts  = 25
 grid = linspace(0, tfinal, qtd_pts)
 
@@ -228,19 +228,22 @@ res = F(x0 = x_ss, z0 = z_ss, p = u0)
 
 #%% Novidades
 
-def plotar_graficos(n_pert):
+def Sim_dynamics(n_pert, qts_pts=25):
     global res
-    global tfinal
+    u0 = [56., 10 ** 4, 50., .5, 50., .5, 50., .5, 50., .5]
+    grid = linspace(0, (n_pert + 1) * 1000, qtd_pts * (n_pert + 1))
 
+    # Inicialização
+    Inputs = [[] for _ in range(10)]
+    for i in range(len(u0)):
+        for j in range(qtd_pts):
+            Inputs[i].append(u0[i])
     Lista_xf = []
     Lista_zf = []
     Lista_xf.append(res["xf"])
     Lista_zf.append(res["zf"])
     x0 = Lista_xf[-1][:, -1]
     z0 = Lista_zf[-1][:, -1]
-    map_est = []
-    map_est.append(x0)
-    map_est.append(z0)
     Lista_zf = np.array(Lista_zf)
     Lista_xf = np.array(Lista_xf)
     Lista_zf_reshaped = Lista_zf.reshape(8, qtd_pts)
@@ -261,28 +264,20 @@ def plotar_graficos(n_pert):
     bcs_freq4 = np.clip(base_bcs + np.random.uniform(-delta_bcs, delta_bcs, n_pert), 35, 65)
     booster_freq = np.clip(base_bcs + np.random.uniform(-delta_bcs, delta_bcs, n_pert), 35, 65)
     p_topo = np.random.uniform(8, 12, n_pert)
+    for i in range(len(valve_open1)):
+        for j in range(qtd_pts):
+            for k in range(10):
+                Inputs[k].append(u0[k])
 
-    grid_cont = 1
     for i in range(n_pert):
-        grid_cont += 1
-        delta = 1000
-        grid = linspace(tfinal, tfinal + delta, qtd_pts)
-        tfinal += delta
         u0 = [booster_freq[i], p_topo[i] ** 4, bcs_freq1[i], valve_open1[i], bcs_freq2[i], valve_open2[i], bcs_freq3[i], valve_open3[i], bcs_freq4[i], valve_open4[i]]
         res = F(x0=x0, z0=z0, p=u0)
         x0 = res["xf"][:, -1]
         z0 = res["zf"][:, -1]
-        map_est.append(x0)
-        map_est.append(z0)
-        Inputs = []
-        Inputs.append(u0)
         Lista_xf_reshaped = np.hstack((Lista_xf_reshaped, np.array(res["xf"])))
         Lista_zf_reshaped = np.hstack((Lista_zf_reshaped, np.array(res["zf"])))
-
-        #Plotted Graphs
-        rcParams['axes.formatter.useoffset'] = False
-        grid = linspace(0, tfinal, qtd_pts * grid_cont)
-
+    #Plotted Graphs
+    rcParams['axes.formatter.useoffset'] = False
     def Auto_plot(i, t, xl, yl, c):
         plt.plot(grid, i.transpose(), c)
         matplotlib.pyplot.title(t)
@@ -294,13 +289,11 @@ def plotar_graficos(n_pert):
         plt.grid()
         plt.show()
 
-    # Auto_plot(Lista_zf_reshaped[[1, 3, 5, 7], :], "Pressão de Saída BCS", 'Time/(h)', 'Pressure/(bar)', 'b')
-    # Auto_plot(Lista_xf_reshaped[[2, 5, 8, 11], :], "Pressure de Fundo de Poço", 'Time/(h)', 'Pressure/(bar)', 'r')
-    # Auto_plot(Lista_xf_reshaped[[3, 6, 9, 12], :], 'Pressão da Choke', 'Time/(h)', 'Pressure/(bar)', 'g')
-    # Auto_plot(Lista_xf_reshaped[[4, 7, 10, 13], :], 'Vazão dos Poços', 'Time/(h)', 'Flow Rate/(m^3/h)', 'k')
-    # Auto_plot(Lista_xf_reshaped[[1], :], 'Vazão Manifold', 'Time/(h)', 'Flow Rate/(m^3/h)','y')
-    # Auto_plot(Lista_xf_reshaped[[0], :], 'Pressão Manifold', 'Time/(h)', 'Pressure/(bar)', 'm')
-
-    # p_intake é desnecessário
-    # Auto_plot(Lista_zf_reshaped[[0, 2, 4, 6], :],"Pressão de Entrada BCS", 'Time/(h)', 'Pressure/(bar)', 'c')
-    return Lista_xf_reshaped, Lista_zf_reshaped, Inputs
+    # Auto_plot(Lista_zf_reshaped[[1, 3, 5, 7], :], "Pressão de Saída BCS", 'Time/(s)', 'Pressure/(bar)', 'b')
+    # Auto_plot(Lista_xf_reshaped[[2, 5, 8, 11], :], "Pressure de Fundo de Poço", 'Time/(s)', 'Pressure/(bar)', 'r')
+    # Auto_plot(Lista_xf_reshaped[[3, 6, 9, 12], :], 'Pressão da Choke', 'Time/(s)', 'Pressure/(bar)', 'g')
+    # Auto_plot(Lista_xf_reshaped[[4, 7, 10, 13], :], 'Vazão dos Poços', 'Time/(s)', 'Flow Rate/(m^3/h)', 'k')
+    # Auto_plot(Lista_xf_reshaped[[1], :], 'Vazão Manifold', 'Time/(s)', 'Flow Rate/(m^3/h)','y')
+    Auto_plot(Lista_xf_reshaped[[0], :], 'Pressão Manifold', 'Time/(s)', 'Pressure/(bar)', 'm')
+    # Auto_plot(Lista_zf_reshaped[[0, 2, 4, 6], :],"Pressão de Entrada BCS", 'Time/(s)', 'Pressure/(bar)', 'c')
+    return Lista_xf_reshaped, Lista_zf_reshaped, Inputs, grid
