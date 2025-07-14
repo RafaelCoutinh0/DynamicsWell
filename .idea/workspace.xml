@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59265ed9-e1b9-4d46-b70b-d4119067e523" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ARX_Recursivo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ARX_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ARX_optuna.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ARX_Recursivo_Optuna.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARX_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Create_DataBase.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_DataBase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Estudo_ACeCC.py" beforeDir="false" afterPath="$PROJECT_DIR$/Estudo_ACeCC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/time.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/time.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/ut.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/ut.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/xt.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/xt.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/zt.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_AC_CC_2/zt.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initialization_oil_production_basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/initialization_oil_production_basic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARX_Recursivo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ARX_Recursivo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARX_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ARX_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARX_optuna.py" beforeDir="false" afterPath="$PROJECT_DIR$/ARX_optuna.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Create_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_excel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_csv/p_man_q_tr_completo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/p_man_q_tr_completo.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +39,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.ARX_Recursivo.executor": "Run",
+    "Python.ARX_Recursivo_Optuna.executor": "Run",
     "Python.ARX_model.executor": "Run",
     "Python.ARX_models.executor": "Run",
     "Python.ARX_optuna.executor": "Run",
@@ -66,6 +62,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maxpi\PycharmProjects\ModelDynamics" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,7 +85,7 @@
       <workItem from="1752236937074" duration="15777000" />
       <workItem from="1752335977368" duration="7145000" />
       <workItem from="1752445202687" duration="104000" />
-      <workItem from="1752445452903" duration="18451000" />
+      <workItem from="1752445452903" duration="25998000" />
     </task>
     <servers />
   </component>
@@ -92,15 +93,16 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_optuna.coverage" NAME="ARX_optuna Coverage Results" MODIFIED="1752463008993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_optuna.coverage" NAME="ARX_optuna Coverage Results" MODIFIED="1752469117099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$Reaction_Curve.coverage" NAME="Reaction_Curve Coverage Results" MODIFIED="1752341844448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_Recursivo.coverage" NAME="ARX_Recursivo Coverage Results" MODIFIED="1752464645731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_Recursivo.coverage" NAME="ARX_Recursivo Coverage Results" MODIFIED="1752472368638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$initialization_oil_production_basic.coverage" NAME="initialization_oil_production_basic Coverage Results" MODIFIED="1752337465419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$Estudo_ACeCC.coverage" NAME="Estudo_ACeCC Coverage Results" MODIFIED="1752454973551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_Recursivo_Optuna.coverage" NAME="ARX_Recursivo_Optuna Coverage Results" MODIFIED="1752472540626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$reaction_curve.coverage" NAME="reaction_curve Coverage Results" MODIFIED="1752251238204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$Create_excel.coverage" NAME="Create_excel Coverage Results" MODIFIED="1752342126961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_models.coverage" NAME="ARX_models Coverage Results" MODIFIED="1752463553898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$Create_DataBase.coverage" NAME="Create_DataBase Coverage Results" MODIFIED="1752464297448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ModelDynamics$ARX_models.coverage" NAME="ARX_models Coverage Results" MODIFIED="1752470679785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$ARX_model.coverage" NAME="ARX_model Coverage Results" MODIFIED="1752458431148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

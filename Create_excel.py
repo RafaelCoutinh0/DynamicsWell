@@ -27,7 +27,7 @@ df['p_man'] = df['p_man'].map(lambda x: f"{x:.6f}".replace('.', ','))
 df['q_tr'] = df['q_tr'].map(lambda x: f"{x:.6f}".replace('.', ','))
 
 # Salva CSV com separador ponto e vírgula (padrão BR) e sem o índice
-df.to_csv('data_csv/p_man_q_tr_completo.csv', sep=',', index=False, decimal=',')
+df.to_csv('data/p_man_q_tr_completo.csv', sep=',', index=False, decimal=',')
 
 print("Arquivo CSV gerado com formato brasileiro (vírgula decimal)!")
 
