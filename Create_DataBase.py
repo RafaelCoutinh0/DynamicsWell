@@ -2,6 +2,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
+import random
 from numpy import linspace
 from initialization_oil_production_basic import F, u0, x_ss, z_ss, Sim_dynamics, integrator, dae
 
@@ -111,7 +112,70 @@ def create_data_reaction_curve():
     plot_pert(Lista_xf, Lista_zf,tfinal,  qtd_pts_sim, var_idx=1)
 
 
-    return Lista_xf, Lista_zf, Inputs
+    return Lista_xf, Lista_zf, Inputs, grid
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+def create_data_AC_DC():
+    qtd_pts_inicial = 100
+    grid = np.linspace(0, 1500, qtd_pts_inicial)
+    F = integrator('F', 'idas', dae, 0, grid)
+    Lista_xf = []
+    Lista_zf = []
+    x0 = x_ss
+    z0 = z_ss
+    Inputs = []
+
+    base_valve_open = 0.5
+    base_bcs = 56.
+    delta = 0.1
+    delta_bcs = 5
+    alteracoes = {}
+    pert_indices = [0, 2, 3, 4, 5, 6, 7, 8, 9]
+    for idx in pert_indices:
+        if idx in [0, 2, 4, 6, 8]:
+            val = np.clip(base_bcs + np.random.uniform(-delta_bcs, delta_bcs), 35, 65)
+        else:
+            val = np.clip(base_valve_open + np.random.uniform(-delta, delta), 0, 1.0)
+        alteracoes[len(alteracoes)] = (idx, val)
+        if idx in [0, 2, 4, 6, 8]:
+            val = np.clip(base_bcs + np.random.uniform(-delta_bcs, delta_bcs), 35, 65)
+        else:
+            val = np.clip(base_valve_open + np.random.uniform(-delta, delta), 0, 1.0)
+        alteracoes[len(alteracoes)] = (idx, val)
+
+    for i in range(18):
+        u_mod = u0.copy()
+        idx, val = alteracoes[i]
+        u_mod[idx] = val
+        for _ in range(qtd_pts_inicial):
+            Inputs.append(u_mod.copy())
+        res = F(x0=x0, z0=z0, p=u_mod)
+        x0 = res["xf"][:, -1]  # Atualiza para o final da simulação anterior
+        z0 = res["zf"][:, -1]
+        Lista_xf.append(res["xf"])
+        Lista_zf.append(res["zf"])
+
+    Lista_xf = np.hstack(Lista_xf)
+    Lista_zf = np.hstack(Lista_zf)
+    tfinal = 1500 * 18
+    grid = np.linspace(0, tfinal, 18 * qtd_pts_inicial)
+
+    def auto_plot(data, title_str, x_label, y_label, color):
+        plt.figure(figsize=(10, 5))
+        plt.plot(grid, data.T, color)
+        plt.title(title_str)
+        plt.xlabel(x_label)
+        plt.ylabel(y_label)
+        y_min, y_max = np.min(data), np.max(data)
+        plt.ylim([y_min - 0.1 * abs(y_max), y_max + 0.1 * abs(y_max)])
+        plt.grid()
+        plt.show()
+
+    rcParams['axes.formatter.useoffset'] = False
+    auto_plot(Lista_xf[[0], :], 'Pressão Manifold', 'Tempo (s)', 'Pressão (bar)', 'm')
+
+    return Lista_xf, Lista_zf, np.array(Inputs).T, grid
 
 # === NOME DAS VARIÁVEIS ===
 xf_names = [
@@ -132,22 +196,29 @@ print("Executando simulação para obter dados...")
 n_pert = 10  # número de perturbações (ajustável)
 i = 1
 
-while os.path.exists(f'Simulações/Sim_{i}'):
-    i += 1
-pasta_simulacao = f'Simulações/Sim_{i}'
-os.makedirs(pasta_simulacao)
-Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = Sim_dynamics(n_pert)
+# while os.path.exists(f'Simulações/Sim_{i}'):
+#     i += 1
+# pasta_simulacao = f'Simulações/Sim_{i}'
+# os.makedirs(pasta_simulacao)
+# Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = Sim_dynamics(n_pert)
 
 # while os.path.exists(f'Simulações/Sim_react_{i}'):
 #     i += 1
 #
 # pasta_simulacao = f'Simulações/Sim_react_{i}'
 # os.makedirs(pasta_simulacao)
-# Lista_xf_reshaped, Lista_zf_reshaped, Inputs = create_data_reaction_curve()
+# Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = create_data_reaction_curve()
 
+while os.path.exists(f'Simulações/Sim_AC_CC_{i}'):
+    i += 1
+
+pasta_simulacao = f'Simulações/Sim_AC_CC_{i}'
+os.makedirs(pasta_simulacao)
+Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = Sim_dynamics(5)
 
 # Salva os arquivos na pasta
 np.save(os.path.join(pasta_simulacao, 'xt.npy'), np.array(Lista_xf_reshaped))
 np.save(os.path.join(pasta_simulacao, 'zt.npy'), np.array(Lista_zf_reshaped))
-np.save(os.path.join(pasta_simulacao, 'ut.npy'), np.array(Inputs))
+np.save(os.path.join(pasta_simulacao, 'ut.npy'), Inputs)
 np.save(os.path.join(pasta_simulacao, 'time.npy'), np.array(time))
+

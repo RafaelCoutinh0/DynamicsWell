@@ -228,7 +228,7 @@ res = F(x0 = x_ss, z0 = z_ss, p = u0)
 
 #%% Novidades
 
-def Sim_dynamics(n_pert, qts_pts=25):
+def Sim_dynamics(n_pert, qtd_pts=25):
     global res
     u0 = [56., 10 ** 4, 50., .5, 50., .5, 50., .5, 50., .5]
     grid = linspace(0, (n_pert + 1) * 1000, qtd_pts * (n_pert + 1))
@@ -252,7 +252,7 @@ def Sim_dynamics(n_pert, qts_pts=25):
     # criando as pertubações de u0
     base_valve_open = 0.5
     base_bcs = 50.
-    delta = 0.05
+    delta = 0.1
     delta_bcs = 5
     valve_open1 = np.clip(base_valve_open + np.random.uniform(-delta, delta, n_pert), 0, 1.0)
     valve_open2 = np.clip(base_valve_open + np.random.uniform(-delta, delta, n_pert), 0, 1.0)
@@ -264,13 +264,14 @@ def Sim_dynamics(n_pert, qts_pts=25):
     bcs_freq4 = np.clip(base_bcs + np.random.uniform(-delta_bcs, delta_bcs, n_pert), 35, 65)
     booster_freq = np.clip(base_bcs + np.random.uniform(-delta_bcs, delta_bcs, n_pert), 35, 65)
     p_topo = np.random.uniform(8, 12, n_pert)
-    for i in range(len(valve_open1)):
-        for j in range(qtd_pts):
-            for k in range(10):
-                Inputs[k].append(u0[k])
+
+
 
     for i in range(n_pert):
         u0 = [booster_freq[i], p_topo[i] ** 4, bcs_freq1[i], valve_open1[i], bcs_freq2[i], valve_open2[i], bcs_freq3[i], valve_open3[i], bcs_freq4[i], valve_open4[i]]
+        for j in range(qtd_pts):
+            for k in range(10):
+                Inputs[k].append(u0[k])
         res = F(x0=x0, z0=z0, p=u0)
         x0 = res["xf"][:, -1]
         z0 = res["zf"][:, -1]

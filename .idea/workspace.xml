@@ -5,21 +5,250 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59265ed9-e1b9-4d46-b70b-d4119067e523" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Create_excel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulações/Sim_react_1/Entradas.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulações/Sim_react_1/xf.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulações/Sim_react_1/zf.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p_man_q_tr_completo.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_choke_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_choke_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_fbhp_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_fbhp_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_1 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_2 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_2 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_3 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_3 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_choke_4 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_choke_4 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_fbhp_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_fbhp_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_1 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_choke_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_choke_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_2 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_3 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_fbhp_4 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_1 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_2 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_2 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_2 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_2 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_2 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_2 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_2 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_2 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_2 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_2 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_3 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_3 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_3 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_3 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_3 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_3 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_intake_4 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_intake_4 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_choke_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_choke_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_choke_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_choke_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs q_mean_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs q_mean_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/P_man vs q_transp.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/P_man vs q_transp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_1 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_2 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_3 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_3 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/dP_bcs_3 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/dP_bcs_3 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/matriz_correlacao.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/matriz_correlacao.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_choke_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_choke_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_fbhp_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_fbhp_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_1 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_1 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_2 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_2 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_3 vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_3 vs q_mean_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_mean_4 vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_choke_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_fbhp_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs P_intake_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs dP_bcs_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Correlações/q_transp vs q_mean_4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Create_DataBase.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_DataBase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_1/Entradas.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_1/xf.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulações/Sim_1/zf.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Create_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_excel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Estudo_ACeCC.py" beforeDir="false" afterPath="$PROJECT_DIR$/Estudo_ACeCC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction_Curve.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction_Curve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC/Entradas.npy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC/xf.npy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulações/Sim_AC_CC/zf.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulações/Sim_react_1/Entradas.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_react_1/ut.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulações/Sim_react_1/xf.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_react_1/xt.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulações/Sim_react_1/zf.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Simulações/Sim_react_1/zt.npy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/initialization_oil_production_basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/initialization_oil_production_basic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reaction_curve.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction_Curve.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +277,7 @@
   "keyToString": {
     "Python.Create_DataBase.executor": "Run",
     "Python.Create_excel.executor": "Run",
+    "Python.Estudo_ACeCC.executor": "Run",
     "Python.Reaction_Curve.executor": "Run",
     "Python.initialization_oil_production_basic.executor": "Run",
     "Python.reaction_curve.executor": "Run",
@@ -67,8 +297,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.159" />
-        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
+        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
       </set>
     </attachedChunks>
   </component>
@@ -80,7 +310,9 @@
       <option name="presentableId" value="Default" />
       <updated>1750900624469</updated>
       <workItem from="1752236937074" duration="15777000" />
-      <workItem from="1752335977368" duration="6388000" />
+      <workItem from="1752335977368" duration="7145000" />
+      <workItem from="1752445202687" duration="104000" />
+      <workItem from="1752445452903" duration="9225000" />
     </task>
     <servers />
   </component>
@@ -90,8 +322,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ModelDynamics$Reaction_Curve.coverage" NAME="Reaction_Curve Coverage Results" MODIFIED="1752341844448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$initialization_oil_production_basic.coverage" NAME="initialization_oil_production_basic Coverage Results" MODIFIED="1752337465419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ModelDynamics$Estudo_ACeCC.coverage" NAME="Estudo_ACeCC Coverage Results" MODIFIED="1752454811948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$reaction_curve.coverage" NAME="reaction_curve Coverage Results" MODIFIED="1752251238204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ModelDynamics$Create_DataBase.coverage" NAME="Create_DataBase Coverage Results" MODIFIED="1752340409191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ModelDynamics$Create_excel.coverage" NAME="Create_excel Coverage Results" MODIFIED="1752342126961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ModelDynamics$Create_DataBase.coverage" NAME="Create_DataBase Coverage Results" MODIFIED="1752454803865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

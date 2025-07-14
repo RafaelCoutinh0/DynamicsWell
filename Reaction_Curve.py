@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # === Carrega os dados ===
 pasta_simulacao = 'Simulações/Sim_react_1'
-xf = np.load(os.path.join(pasta_simulacao, 'xf.npy'), allow_pickle=True)
+xf = np.load(os.path.join(pasta_simulacao, 'xt.npy'), allow_pickle=True)
 
 # Extrai sinais
 p_man = xf[0, :]
