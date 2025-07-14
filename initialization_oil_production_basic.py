@@ -228,9 +228,16 @@ res = F(x0 = x_ss, z0 = z_ss, p = u0)
 
 #%% Novidades
 
-def Sim_dynamics(n_pert, qtd_pts=25):
+def Sim_dynamics(n_pert, qtd_pts = 25, u0=u0,x0=x_ss, z0=z_ss):
     global res
-    u0 = [56., 10 ** 4, 50., .5, 50., .5, 50., .5, 50., .5]
+    u0 = u0
+    x0 = x0
+    z0 = z0
+    tfinal = 1000  # [s]
+    grid = linspace(0, tfinal, qtd_pts)
+    F = integrator('F', 'idas', dae, 0, grid)
+    res = F(x0=x0, z0=z0, p=u0)
+
     grid = linspace(0, (n_pert + 1) * 1000, qtd_pts * (n_pert + 1))
 
     # Inicialização

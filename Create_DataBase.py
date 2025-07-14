@@ -209,12 +209,25 @@ i = 1
 # os.makedirs(pasta_simulacao)
 # Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = create_data_reaction_curve()
 
-while os.path.exists(f'Simulações/Sim_AC_CC_{i}'):
-    i += 1
+# while os.path.exists(f'Simulações/Sim_AC_CC_{i}'):
+#     i += 1
+#
+# pasta_simulacao = f'Simulações/Sim_AC_CC_{i}'
+# os.makedirs(pasta_simulacao)
+# Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = Sim_dynamics(5)
 
-pasta_simulacao = f'Simulações/Sim_AC_CC_{i}'
+while os.path.exists(f'Simulações/Sim_ARX{i}'):
+    i += 1
+pasta_simulacao = f'Simulações/Sim_ARX{i}'
 os.makedirs(pasta_simulacao)
-Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = Sim_dynamics(5)
+
+pasta_origem = 'Simulações/Sim_AC_CC_2'
+xt = np.load(os.path.join(pasta_origem, 'xt.npy'), allow_pickle=True)
+zt = np.load(os.path.join(pasta_origem, 'zt.npy'), allow_pickle=True)
+ut = np.load(os.path.join(pasta_origem, 'ut.npy'), allow_pickle=True)
+
+Lista_xf_reshaped, Lista_zf_reshaped, Inputs, time = Sim_dynamics(n_pert= 20 , u0 = [ut[0][-1], ut[1][-1],ut[2][-1], ut[3][-1],ut[4][-1], ut[5][-1],ut[6][-1], ut[7][-1],ut[8][-1], ut[9][-1]], x0=[xt[0][-1], xt[1][-1],xt[2][-1], xt[3][-1],xt[4][-1], xt[5][-1],xt[6][-1], xt[7][-1],xt[8][-1], xt[9][-1],xt[10][-1], xt[11][-1],xt[12][-1], xt[13][-1]], z0=[zt[0][-1], zt[1][-1],zt[2][-1], zt[3][-1],zt[4][-1], zt[5][-1],zt[6][-1], zt[7][-1]])
+
 
 # Salva os arquivos na pasta
 np.save(os.path.join(pasta_simulacao, 'xt.npy'), np.array(Lista_xf_reshaped))

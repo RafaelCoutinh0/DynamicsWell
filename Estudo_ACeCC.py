@@ -89,7 +89,7 @@ def matriz_correlacao(df):
     plt.close()
 # === EXECUÇÃO DAS ANÁLISES ===
 print("Plotando autocorrelações...")
-# plot_autocorrelacoes(df)
+plot_autocorrelacoes(df)
 
 print("Plotando correlações cruzadas...")
 plot_correlacoes_cruzadas(df)
