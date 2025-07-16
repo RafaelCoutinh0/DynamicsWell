@@ -6,6 +6,31 @@ import time
 import os
 from sklearn.metrics import mean_squared_error
 
+# =-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-
+# Melhores lags por grupo (Pman):
+# pman: 3
+# p_choke: 3
+# dP_bcs: 3
+# F_Booster: 3
+# p_topo: 3
+# F_bcs: 3
+# valve: 3
+# Melhor AIC: -7032.7133977844505
+# =-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-
+# Melhores lags por grupo (q_tr):
+# q_tr: 1
+# F_Booster: 3
+# p_topo: 3
+# F_bcs: 3
+# valve: 3
+# Melhor AIC: -3017.8256166332594
+# =-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-
+
+# Exemplo de saída:
+# Melhores Parametros qtr: {'n_qtr': 3, 'n_F_Booster': 4, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 74465.24193300933, 'lam': 0.9999964029009534}
+# Melhor AIC qtr: -1721.010405637254
+# Melhores Parametros{'n_pman': 1, 'n_pchoke': 2, 'n_dP_bcs': 1, 'n_F_Booster': 2, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 7643.804616652912, 'lam': 0.9808886573472999}
+# Melhor AIC: -2098.511488012563
 
 pasta_simulacao = 'Simulações/Sim_AC_CC_2'
 
@@ -107,10 +132,28 @@ valve_4, valve_4_media, valve_4_std = normalizar(valve_4)
 
 # Pman ( Pman, p_choke_1, p_choke_2,p_choke_3,p_choke_4, p_intake_1,p_intake_2,p_intake_3,p_intake_4, dP_bcs_1 ,dP_bcs_2 ,dP_bcs_3 ,dP_bcs_4 , F_Booster, F_bcs_1,F_bcs_2,F_bcs_3,F_bcs_4, valve_1, valve_2, valve_3, valve_4)
 Pman_exp = pman[1:-1]  # Excluir o primeiro e o último valor para manter a consistência com os regressores
+# Exemplo de saída:
+# Melhores Parametros{'n_pman': 1, 'n_pchoke': 2, 'n_dP_bcs': 1, 'n_F_Booster': 2, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 7643.804616652912, 'lam': 0.9808886573472999}
+# Melhor AIC: -2098.511488012563
 
+# Melhores Parametros Pman{'n_pman': 2, 'n_pchoke': 2, 'n_dP_bcs': 1, 'n_F_Booster': 2, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 0.6419392512124129, 'lam': 0.9835874744408079}
+# Melhor AIC Pman: -3189.973384558148
 # Lags ótimos encontrados
-lags_otimos = [1, 1, 2, 1, 2]  # [pman, p_choke, dP_bcs, F_Booster, F_bcs]
+lags_otimos = [2, 2, 1, 2, 2, 1, 1]  # [pman, p_choke, dP_bcs, F_Booster, F_bcs]
 
+
+def create_init_theta_pman(groups, n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_ptopo, n_F_bcs, n_valve):
+    """
+    Cria um vetor de parâmetros iniciais para o modelo ARX de Pman.
+    """
+    global pman
+    lags_otimos = [n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_ptopo, n_F_bcs, n_valve]
+    X, y_target = build_arx_matrix_groups(pman, groups, lags_otimos)
+    # Ajustar modelo ARX
+    model = LinearRegression(fit_intercept=False)
+    model.fit(X, y_target)
+    thetas_pman = model.coef_
+    return thetas_pman
 # Montar matriz de regressores e saída-alvo
 X, y_target = build_arx_matrix_groups(pman, groups, lags_otimos)
 
@@ -127,28 +170,52 @@ rmse = np.sqrt(mse)
 print(rmse)
 # Plotar resultados
 t_plot = t[-len(y_target):]
-plt.figure()
-plt.plot(t_plot, y_target, '.', label='CASADI')
-plt.plot(t_plot, pman_sim, label='ARX')
-plt.ylabel(r'Pressão .Manifold(t)')
-plt.xlabel(r'Tempo (s)')
-plt.legend()
-plt.show()
-
-print(f"AIC(Pman, lags ótimos): {aic}")
-print(f"RMSE(Man, lags ótimos): {rmse}")
+# plt.figure(figsize=(19, 6), dpi= 300)
+# plt.plot(t_plot, desnormalize(pman_sim, pman_media, pman_std), label='ARX',linewidth=3)
+# plt.plot(t_plot, desnormalize(y_target, pman_media, pman_std), '.', label='CASADI', linewidth=3)
+# plt.ylabel(r'Pressão Manifold / Bar', fontsize=16)
+# plt.xlabel(r'Tempo / s', fontsize=16)
+# plt.legend(fontsize=16)
+# plt.show()
+#
+# print(f"AIC(Pman, lags ótimos): {aic}")
+# print(f"RMSE(Man, lags ótimos): {rmse}")
 
 # Após ajustar o modelo
 thetas_pman = model.coef_
 np.save('data/thetas_pman_arx.npy', thetas_pman)
 
+# Exemplo de saída:
+# Melhores Parametros qtr: {'n_qtr': 3, 'n_F_Booster': 4, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 74465.24193300933, 'lam': 0.9999964029009534}
+# Melhor AIC qtr: -1721.010405637254
 
-lags_otimos = [3, 4 , 4]
+# Melhores Parametros qtr: {'n_qtr': 1, 'n_F_Booster': 3, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 1.017536246808685, 'lam': 0.8564930170941152}
+# Melhor AIC qtr: -2387.298224531064
+
+# Melhores Parametros qtr: {'n_qtr': 1, 'n_F_Booster': 3, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 0.18152246007140704, 'lam': 0.8201136110428227}
+# Melhor AIC qtr: -2405.193903225024
+lags_otimos = [1, 3, 1 , 2, 2]
 groups_qtr = {
     'q_tr': [q_transp],
     'F_Booster': [F_Booster],
+    'p_topo': [P_topo],
     'F_bcs': [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4],
+    'valve': [valve_1, valve_2, valve_3, valve_4],
 }
+
+def create_init_theta_qtr(groups_qtr, n_qtr, n_F_Booster, n_ptopo, n_F_bcs, n_valve):
+    """
+    Cria um vetor de parâmetros iniciais para o modelo ARX de Pman.
+    """
+    global q_transp
+    lags_otimos_qtr = [n_qtr, n_F_Booster, n_ptopo, n_F_bcs, n_valve]
+    X, y_target = build_arx_matrix_groups(q_transp, groups_qtr, lags_otimos_qtr)
+    # Ajustar modelo ARX
+    model = LinearRegression(fit_intercept=False)
+    model.fit(X, y_target)
+    thetas_qtr = model.coef_
+    return thetas_qtr
+
 # Montar matriz de regressores e saída-alvo
 X, y_target = build_arx_matrix_groups(q_transp, groups_qtr, lags_otimos)
 
@@ -164,12 +231,12 @@ rmse = np.sqrt(mse)
 aic = calculate_aic(len(y_target), mse, X.shape[1])
 t_plot = t[-len(y_target):]
 
-plt.figure()
-plt.plot(t_plot, desnormalize(y_target, q_transp_media, q_transp_std), '.', label='CASADI')
-plt.plot(t_plot, desnormalize(pman_sim, q_transp_media, q_transp_std), label='ARX')
-plt.ylabel(r'Vazão Manifold(t)$')
-plt.xlabel(r'Tempo (s)')
-plt.legend()
+plt.figure(figsize=(19, 6), dpi= 300)
+plt.plot(t_plot, desnormalize(pman_sim, q_transp_media, q_transp_std), label='ARX',linewidth=3)
+plt.plot(t_plot, desnormalize(y_target, q_transp_media, q_transp_std), '.', label='CASADI',linewidth=3)
+plt.ylabel(r'Vazão Manifold / $m^3 \cdot s^{-1}$', fontsize=16)
+plt.xlabel(r'Tempo / s', fontsize=16)
+plt.legend(fontsize=16)
 plt.show()
 
 print(f"AIC(qtr, lags ótimos): {aic}")

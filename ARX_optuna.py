@@ -127,27 +127,36 @@ groups = {
     'p_choke': [p_choke_1, p_choke_2, p_choke_3, p_choke_4],
     'dP_bcs': [dP_bcs_1, dP_bcs_2, dP_bcs_3, dP_bcs_4],
     'F_Booster': [F_Booster],
-    'F_bcs': [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4]
+    'p_topo': [P_topo],
+    'F_bcs': [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4],
+    'valve': [valve_1, valve_2, valve_3, valve_4],
 }
 
 def build_arx_matrix_groups(y, groups, lags):
-    min_lag = max(lags)
+    # O primeiro grupo é sempre a saída (usar apenas atrasos passados)
+    min_lag = max([lag for lag in lags])  # lag para saída é o número de atrasos, para entradas é lag-1
     N = len(y) - min_lag
     X = []
     for i in range(N):
         row = []
-        for group_vars, lag in zip(groups.values(), lags):
-            if lag > 0:  # Apenas incluir variáveis com lag positivo
+        for idx, (group_vars, lag) in enumerate(zip(groups.values(), lags)):
+            if lag > 0:
                 for var in group_vars:
-                    for l in range(1, lag + 1):  # Ignorar lag zero
-                        row.append(var[i + min_lag - l])
+                    if idx == 0:
+                        # Saída: usar apenas atrasos passados (nunca o valor atual)
+                        for l in range(1, lag + 1):
+                            row.append(var[i + min_lag - l])
+                    else:
+                        # Entradas: usar valor atual e atrasos
+                        for l in range(lag):
+                            row.append(var[i + min_lag - l])
         X.append(row)
     X = np.array(X)
     y_target = y[min_lag:]
     return X, y_target
 
 def objective(trial):
-    lags = [trial.suggest_int(f'lag_{name}', 0, 5) for name in groups.keys()]
+    lags = [trial.suggest_int(f'lag_{name}', 0, 3) for name in groups.keys()]
     X, y_target = build_arx_matrix_groups(pman, groups, lags)
     model = LinearRegression(fit_intercept=False)
     model.fit(X, y_target)
@@ -168,15 +177,15 @@ def objective(trial):
 groups_qtr = {
     'q_tr': [q_transp],
     'F_Booster': [F_Booster],
+    'p_topo': [P_topo],
     'F_bcs': [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4],
     'valve': [valve_1, valve_2, valve_3, valve_4],
-
 }
 
 
 def objective_qtr(trial):
-    lags = [trial.suggest_int(f'lag_{name}', 0, 5) for name in groups_qtr.keys()]
-    if lags == [0,0,0,0]:
+    lags = [trial.suggest_int(f'lag_{name}', 0, 3) for name in groups_qtr.keys()]
+    if lags == [0,0,0,0,0]:
         return 100000
     X, y_target = build_arx_matrix_groups(q_transp, groups_qtr, lags)
     model = LinearRegression(fit_intercept=False)
@@ -186,7 +195,7 @@ def objective_qtr(trial):
     aic = calculate_aic(len(y_target), mse, X.shape[1])
     return aic
 
-#
+
 # study_qtr = optuna.create_study(direction='minimize')
 # study_qtr.optimize(objective_qtr, n_trials=2000)
 # print("\n")

@@ -2,7 +2,8 @@ import numpy as np
 import optuna
 import matplotlib.pyplot as plt
 import os
-from ARX_optuna import calculate_aic
+from ARX_models import create_init_theta_pman, create_init_theta_qtr
+from ARX_optuna import calculate_aic, groups_qtr, groups
 
 pasta_simulacao = 'Simulações/Sim_AC_CC_2'
 x0 = np.load(os.path.join(pasta_simulacao, 'xt.npy'), allow_pickle=True)
@@ -113,71 +114,62 @@ F_bcs_4, F_bcs_4_media, F_bcs_4_std = normalizar(F_bcs_4)
 valve_4, valve_4_media, valve_4_std = normalizar(valve_4)
 
 # Pman lags_otimos = [1, 1, 2, 1, 2]  # [pman, p_choke, dP_bcs, F_Booster, F_bcs]
-n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_F_bcs = 1, 1, 2, 1, 2
-d = 2
-n_params = n_pman + (n_pchoke * 4) + (n_dP_bcs * 4) + n_F_Booster + (n_F_bcs * 4)
+n_pman, n_pchoke, n_dP_bcs, n_F_Booster,n_ptopo, n_F_bcs, n_valve = 3, 3, 3, 3, 3, 3, 3
+d = 3
+n_params = n_pman + (n_pchoke * 4) + (n_dP_bcs * 4) + n_F_Booster + n_ptopo + (n_F_bcs * 4) + (n_valve * 4)
 
 def objective(trial):
+    # Sugere lags ótimos
+    n_pman = trial.suggest_int('n_pman', 1, 3)
+    n_pchoke = trial.suggest_int('n_pchoke', 1, 3)
+    n_dP_bcs = trial.suggest_int('n_dP_bcs', 1, 3)
+    n_F_Booster = trial.suggest_int('n_F_Booster', 1, 3)
+    n_ptopo = trial.suggest_int('n_ptopo', 1, 3)
+    n_F_bcs = trial.suggest_int('n_F_bcs', 1, 3)
+    n_valve = trial.suggest_int('n_valve', 1, 3)
+    d = max(n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_ptopo, n_F_bcs, n_valve)
+    n_params = n_pman + (n_pchoke * 4) + (n_dP_bcs * 4) + n_F_Booster + n_ptopo + (n_F_bcs * 4) + (n_valve * 4)
     # Sugere valores para os hiperparâmetros
-    P_init = trial.suggest_loguniform('P_init', 1e-2, 1e5)
-    lam = 1
-    R = 1e-6
+    P_init = trial.suggest_float('P_init', 1e-2, 1e5, log=True)
+    lam = trial.suggest_float('lam', 0.3, 1, log=True)
+    R = 0
 
     # Inicialização
     P = np.eye(n_params) * P_init
-    theta = thetas_pman.copy()
+    theta = create_init_theta_pman(groups, n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_ptopo, n_F_bcs, n_valve)
     pman_hat = np.zeros_like(pman)
     pman_hat[:d] = pman[:d]
 
-    for k in range(d, len(pman)):
+    for idx, k in enumerate(range(d, len(pman))):
         phi = []
-        # Atrasos de pman
+        # Saída: atrasos previstos
         for i in range(1, n_pman + 1):
             phi.append(pman[k - i])
-        # Atrasos de p_choke_1
-        for i in range(1, n_pchoke + 1):
-            phi.append(p_choke_1[k - i])
-        # Atrasos de p_choke_2
-        for i in range(1, n_pchoke + 1):
-            phi.append(p_choke_2[k - i])
-        # Atrasos de p_choke_3
-        for i in range(1, n_pchoke + 1):
-            phi.append(p_choke_3[k - i])
-        # Atrasos de p_choke_4
-        for i in range(1, n_pchoke + 1):
-            phi.append(p_choke_4[k - i])
-        # Atrasos de dP_bcs_1
-        for i in range(1, n_dP_bcs + 1):
-            phi.append(dP_bcs_1[k - i])
-        # Atrasos de dP_bcs_2
-        for i in range(1, n_dP_bcs + 1):
-            phi.append(dP_bcs_2[k - i])
-        # Atrasos de dP_bcs_3
-        for i in range(1, n_dP_bcs + 1):
-            phi.append(dP_bcs_3[k - i])
-        # Atrasos de dP_bcs_4
-        for i in range(1, n_dP_bcs + 1):
-            phi.append(dP_bcs_4[k - i])
-        # Atrasos de F_Booster
-        for i in range(1, n_F_Booster + 1):
+        # Entradas: valor atual e atrasos
+        for p_choke in [p_choke_1, p_choke_2, p_choke_3, p_choke_4]:
+            for i in range(n_pchoke):
+                phi.append(p_choke[k - i])
+        for dP_bcs in [dP_bcs_1, dP_bcs_2, dP_bcs_3, dP_bcs_4]:
+            for i in range(n_dP_bcs):
+                phi.append(dP_bcs[k - i])
+        for i in range(n_F_Booster):
             phi.append(F_Booster[k - i])
-        # Atrasos de F_bcs_1
-        for i in range(1, n_F_bcs + 1):
-            phi.append(F_bcs_1[k - i])
-        # Atrasos de F_bcs_2
-        for i in range(1, n_F_bcs + 1):
-            phi.append(F_bcs_2[k - i])
-        # Atrasos de F_bcs_3
-        for i in range(1, n_F_bcs + 1):
-            phi.append(F_bcs_3[k - i])
-        # Atrasos de F_bcs_4
-        for i in range(1, n_F_bcs + 1):
-            phi.append(F_bcs_4[k - i])
-
+        for i in range(n_ptopo):
+            phi.append(P_topo[k - i])
+        for f_bcs in [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4]:
+            for i in range(n_F_bcs):
+                phi.append(f_bcs[k - i])
+        for valve in [valve_1, valve_2, valve_3, valve_4]:
+            for i in range(n_valve):
+                phi.append(valve[k - i])
         phi = np.array(phi)
+
+        # Previsão e erro
         pman_hat[k] = phi @ theta
         err = pman[k] - pman_hat[k]
-        gain = (P @ phi) / (lam + phi @ P @ phi + R)
+
+        # Ganho e atualização
+        gain = (P @ phi) / (lam + phi @ P @ phi+ R)
         theta += gain * err
         P = (P - np.outer(gain, phi) @ P) / lam
 
@@ -185,43 +177,53 @@ def objective(trial):
     aic = calculate_aic(len(pman) - d, mse, n_params)
     return aic
 
-# study = optuna.create_study(direction='minimize')
-# study.optimize(objective, n_trials=2000)
-# print(f"Melhores Parametros{study.best_params}")
-# print(f"Melhor AIC: {study.best_value}")
-
 # Vazão Manifold lags_otimos = [3, 4, 4]  # [q_transp, F_Booster, F_bcs]
 # Parâmetros do modelo qtr
-n_qtr, n_F_Booster, n_F_bcs = 3, 4, 4
-d = 4  # maior lag
-n_params = n_qtr + n_F_Booster + (n_F_bcs * 4)
+n_qtr, n_F_Booster, n_ptopo, n_F_bcs, n_valve = 1, 3, 3, 3, 3
+d = 3  # maior lag
+n_params = n_qtr + n_F_Booster + (n_F_bcs * 4) + (n_valve*4) + n_ptopo
 
 def objective_qtr(trial):
-    P_init = trial.suggest_loguniform('P_init', 1e-2, 1e5)
-    lam = 1
-    R = 1e-6
+    n_qtr = trial.suggest_int('n_qtr', 1, 5)
+    n_F_Booster = trial.suggest_int('n_F_Booster', 1, 5)
+    n_ptopo = trial.suggest_int('n_ptopo', 1, 5)
+    n_F_bcs = trial.suggest_int('n_F_bcs', 1, 5)
+    n_valve = trial.suggest_int('n_valve', 1, 5)
+    d = max(n_qtr, n_F_Booster, n_ptopo, n_F_bcs, n_valve)
+    n_params = n_qtr + n_F_Booster + (n_F_bcs * 4) + (n_valve*4) + n_ptopo
+
+    P_init = trial.suggest_float('P_init', 1e-2, 1e5, log=True)
+    lam = trial.suggest_float('lam', 0.3, 1, log=True)
+    R = 0
 
     P = np.eye(n_params) * P_init
-    theta = thetas_qtr.copy()
+    theta = create_init_theta_qtr(groups_qtr, n_qtr, n_F_Booster, n_ptopo, n_F_bcs, n_valve)
     qtr_hat = np.zeros_like(q_transp)
     qtr_hat[:d] = q_transp[:d]
 
-    for k in range(d, len(q_transp)):
+    for idx, k in enumerate(range(d, len(q_transp))):
         phi = []
-        # Atrasos de q_transp
+        # Saída: atrasos previstos
         for i in range(1, n_qtr + 1):
             phi.append(q_transp[k - i])
-        # Atrasos de F_Booster
-        for i in range(1, n_F_Booster + 1):
+        # Entradas: valor atual e atrasos
+        for i in range(n_F_Booster):
             phi.append(F_Booster[k - i])
-        # Atrasos de F_bcs_1 a F_bcs_4
+        for i in range(n_ptopo):
+            phi.append(P_topo[k - i])
         for f_bcs in [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4]:
-            for i in range(1, n_F_bcs + 1):
+            for i in range(n_F_bcs):
                 phi.append(f_bcs[k - i])
-
+        for valve in [valve_1, valve_2, valve_3, valve_4]:
+            for i in range(n_valve):
+                phi.append(valve[k - i])
         phi = np.array(phi)
+
+        # Previsão e erro
         qtr_hat[k] = phi @ theta
         err = q_transp[k] - qtr_hat[k]
+
+        # Ganho e atualização
         gain = (P @ phi) / (lam + phi @ P @ phi + R)
         theta += gain * err
         P = (P - np.outer(gain, phi) @ P) / lam
@@ -231,6 +233,15 @@ def objective_qtr(trial):
     return aic
 
 study_qtr = optuna.create_study(direction='minimize')
-study_qtr.optimize(objective_qtr, n_trials=2000)
+study_qtr.optimize(objective_qtr, n_trials=4000)
+# study = optuna.create_study(direction='minimize')
+# study.optimize(objective, n_trials=2000)
+# print(f"Melhores Parametros Pman{study.best_params}")
+# print(f"Melhor AIC Pman: {study.best_value}")
 print(f"Melhores Parametros qtr: {study_qtr.best_params}")
 print(f"Melhor AIC qtr: {study_qtr.best_value}")
+# Exemplo de saída:
+# Melhores Parametros qtr: {'n_qtr': 3, 'n_F_Booster': 4, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 74465.24193300933, 'lam': 0.9999964029009534}
+# Melhor AIC qtr: -1721.010405637254
+# Melhores Parametros{'n_pman': 1, 'n_pchoke': 2, 'n_dP_bcs': 1, 'n_F_Booster': 2, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 7643.804616652912, 'lam': 0.9808886573472999}
+# Melhor AIC: -2098.511488012563

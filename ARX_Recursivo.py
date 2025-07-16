@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from ARX_optuna import calculate_aic
-
+from ARX_models import create_init_theta_pman, create_init_theta_qtr, groups_qtr
 
 pasta_simulacao = 'Simulações/Sim_AC_CC_2'
 x0 = np.load(os.path.join(pasta_simulacao, 'xt.npy'), allow_pickle=True)
@@ -33,16 +33,17 @@ zt_tot = np.hstack((z0, zt))
 ut_tot = np.hstack((u0, ut))
 t_tot = np.hstack((t0, t))
 
-plt.figure(figsize=(14, 6))
-plt.plot(t_tot, xt_tot[0], color='blue', label='ARX recursivo')
-plt.plot(t, xt[0], color='red', label='Treinamento de teta')
-plt.axvline(x=12000, color='r', linestyle='--', label='t = 6000')
-plt.title('Pressão Manifold / Bar')
-plt.xlabel('Tempo / s')
-plt.ylabel('Valor')
-plt.legend()
+plt.figure(figsize=(19, 6), dpi= 300)
+plt.plot(t_tot, xt_tot[0], color='red', label='Pressão Manifold', linewidth=2)
+plt.plot(t, xt[0], color='Blue', label='Treinamento de $\theta$', linewidth=2)
+plt.axvline(x=12000, color='r', linestyle='--', label='t = 12000 s')
+# plt.title('Pressão Manifold / Bar')
+plt.xlabel('Tempo / s', fontsize=16)
+plt.ylabel('Pressão Manifold / Bar', fontsize=16)
+plt.legend(fontsize=16)
+plt.tick_params(axis='both', labelsize=16)
 plt.show()
-
+print(t_tot[-1])
 thetas_qtr = np.load('data/thetas_qtr_arx.npy')
 thetas_pman = np.load('data/thetas_pman_arx.npy')
 
@@ -123,66 +124,47 @@ valve_3, valve_3_media, valve_3_std = normalizar(valve_3)
 F_bcs_4, F_bcs_4_media, F_bcs_4_std = normalizar(F_bcs_4)
 valve_4, valve_4_media, valve_4_std = normalizar(valve_4)
 
-# Pman lags_otimos = [1, 1, 2, 1, 2]  # [pman, p_choke, dP_bcs, F_Booster, F_bcs]
-n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_F_bcs = 1, 1, 2, 1, 2
-d = 2
-n_params = n_pman + (n_pchoke * 4) + (n_dP_bcs * 4) + n_F_Booster + (n_F_bcs * 4)
+# Exemplo de saída:
+# Melhores Parametros{'n_pman': 1, 'n_pchoke': 2, 'n_dP_bcs': 1, 'n_F_Booster': 2, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 7643.804616652912, 'lam': 0.9808886573472999}
+# Melhor AIC: -2098.511488012563
 
-P = np.eye(n_params) * 0.43          # covariância inicial grande
-lam = 1                        # fator de esquecimento
-R   = 1e-6                        # ruído de medição
+# Melhores Parametros Pman{'n_pman': 2, 'n_pchoke': 2, 'n_dP_bcs': 1, 'n_F_Booster': 2, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 0.6419392512124129, 'lam': 0.9835874744408079}
+# Melhor AIC Pman: -3189.973384558148
+
+n_pman, n_pchoke, n_dP_bcs, n_F_Booster,n_ptopo, n_F_bcs, n_valve = 2, 2, 1, 2, 2, 1, 1
+d = max(n_pman, n_pchoke, n_dP_bcs, n_F_Booster, n_ptopo, n_F_bcs, n_valve)  # maior lag
+n_params = n_pman + (n_pchoke * 4) + (n_dP_bcs * 4) + n_F_Booster + n_ptopo + (n_F_bcs * 4) + (n_valve * 4)
+
+P = np.eye(n_params) * 0.64          # covariância inicial grande
+lam = 0.98                      # fator de esquecimento
+R   = 0                        # ruído de medição
+
 pman_hat = np.zeros_like(pman)
-pman_hat[:d] = pman[:d]
-
-
-theta = thetas_pman.copy()  # inicializa com os coeficientes do ARX
+pman_hat[:d] = pman[:d]  # inicializa com valores reais para os primeiros d
+theta = thetas_pman.copy()
 theta_hist = np.zeros((len(pman) - d, n_params))
 for idx, k in enumerate(range(d, len(pman))):
     phi = []
-    # Atrasos de pman
+    # Saída: atrasos previstos
     for i in range(1, n_pman + 1):
         phi.append(pman[k - i])
-
-    # Atrasos de p_choke_1
-    for i in range(1, n_pchoke + 1):
-        phi.append(p_choke_1[k - i])
-    # Atrasos de p_choke_2
-    for i in range(1, n_pchoke + 1):
-        phi.append(p_choke_2[k - i])
-    # Atrasos de p_choke_3
-    for i in range(1, n_pchoke + 1):
-        phi.append(p_choke_3[k - i])
-    # Atrasos de p_choke_4
-    for i in range(1, n_pchoke + 1):
-        phi.append(p_choke_4[k - i])
-    # Atrasos de dP_bcs_1
-    for i in range(1, n_dP_bcs + 1):
-        phi.append(dP_bcs_1[k - i])
-    # Atrasos de dP_bcs_2
-    for i in range(1, n_dP_bcs + 1):
-        phi.append(dP_bcs_2[k - i])
-    # Atrasos de dP_bcs_3
-    for i in range(1, n_dP_bcs + 1):
-        phi.append(dP_bcs_3[k - i])
-    # Atrasos de dP_bcs_4
-    for i in range(1, n_dP_bcs + 1):
-        phi.append(dP_bcs_4[k - i])
-    # Atrasos de F_Booster
-    for i in range(1, n_F_Booster + 1):
+    # Entradas: valor atual e atrasos
+    for p_choke in [p_choke_1, p_choke_2, p_choke_3, p_choke_4]:
+        for i in range(n_pchoke):
+            phi.append(p_choke[k - i])
+    for dP_bcs in [dP_bcs_1, dP_bcs_2, dP_bcs_3, dP_bcs_4]:
+        for i in range(n_dP_bcs):
+            phi.append(dP_bcs[k - i])
+    for i in range(n_F_Booster):
         phi.append(F_Booster[k - i])
-    # Atrasos de F_bcs_1
-    for i in range(1, n_F_bcs + 1):
-        phi.append(F_bcs_1[k - i])
-    # Atrasos de F_bcs_2
-    for i in range(1, n_F_bcs + 1):
-        phi.append(F_bcs_2[k - i])
-    # Atrasos de F_bcs_3
-    for i in range(1, n_F_bcs + 1):
-        phi.append(F_bcs_3[k - i])
-    # Atrasos de F_bcs_4
-    for i in range(1, n_F_bcs + 1):
-        phi.append(F_bcs_4[k - i])
-
+    for i in range(n_ptopo):
+        phi.append(P_topo[k - i])
+    for f_bcs in [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4]:
+        for i in range(n_F_bcs):
+            phi.append(f_bcs[k - i])
+    for valve in [valve_1, valve_2, valve_3, valve_4]:
+        for i in range(n_valve):
+            phi.append(valve[k - i])
     phi = np.array(phi)
 
     # Previsão e erro
@@ -190,7 +172,7 @@ for idx, k in enumerate(range(d, len(pman))):
     err = pman[k] - pman_hat[k]
 
     # Ganho e atualização
-    gain = (P @ phi) / (lam + phi @ P @ phi)
+    gain = (P @ phi) / (lam + phi @ P @ phi + R)
     theta += gain * err
     P = (P - np.outer(gain, phi) @ P) / lam
 
@@ -199,15 +181,16 @@ mse_pman = np.mean((pman[d:] - pman_hat[d:])**2)
 # rmse = np.sqrt(mse)
 # print(f'RMSE(Pressão Manifold): {rmse}')
 aic = calculate_aic(len(pman) - d, mse_pman, n_params)
+rmse_pman = np.sqrt(mse_pman)
 print(f'AIC(Pressão Manifold): {aic}')
+print(f'RMSE (Pressão Manifold): {rmse_pman}')
 # plot do pman estimado vs pman experimental
 
 plt.figure(figsize=(16, 5))
-plt.plot(t,desnormalize(pman, pman_media, pman_std), label="CASADI", linewidth=2)
-plt.plot(t,desnormalize(pman_hat, pman_media, pman_std), label="ARX RECURSIVO", linestyle='--')
-plt.xlabel("Tempo (s)")
+plt.plot(t,desnormalize(pman_hat, pman_media, pman_std), label="ARX RECURSIVO", linewidth= 3)
+plt.plot(t,desnormalize(pman, pman_media, pman_std), label="CASADI", marker='.', linewidth= 1)
+plt.xlabel("Tempo / s")
 plt.ylabel("Pressão Manifold / Bar")
-plt.title("Pressão Manifold")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
@@ -219,61 +202,70 @@ for i in range(n_params):
     plt.plot(t[d:],theta_hist[:, i], label=f'theta[{i}]')
 plt.xlabel('Tempo / s')
 plt.ylabel('Valor dos parâmetros')
-plt.title('Evolução dos parâmetros theta (Pressão Manifold)')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# qtr lags_otimos = [3, 4, 4]   [q_transp, F_Booster, F_bcs]
-n_qtr, n_F_Booster, n_F_bcs = 3, 4, 4
-d = 4  # maior lag
-n_params = n_qtr + n_F_Booster + (n_F_bcs * 4)
+# Exemplo de saída:
+# Melhores Parametros qtr: {'n_qtr': 3, 'n_F_Booster': 4, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 74465.24193300933, 'lam': 0.9999964029009534}
+# Melhor AIC qtr: -1721.010405637254
 
-P = np.eye(n_params) * 1.97
-lam = 1
-R = 1e-6
+# Melhores Parametros qtr: {'n_qtr': 1, 'n_F_Booster': 3, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 1.017536246808685, 'lam': 0.8564930170941152}
+# Melhor AIC qtr: -2387.298224531064
+
+# Melhores Parametros qtr: {'n_qtr': 1, 'n_F_Booster': 3, 'n_ptopo': 1, 'n_F_bcs': 2, 'n_valve': 2, 'P_init': 0.18152246007140704, 'lam': 0.8201136110428227}
+# Melhor AIC qtr: -2405.193903225024
+n_qtr, n_F_Booster, n_ptopo, n_F_bcs, n_valve = 1, 3, 1 , 2, 2
+d = max(n_qtr,n_F_Booster, n_F_bcs, n_valve, n_ptopo)  # maior lag
+n_params = n_qtr + n_F_Booster + (n_F_bcs * 4) + (n_valve*4) + n_ptopo
+
+P = np.eye(n_params) * 0.18152246007140704  # covariância inicial grande
+lam = 0.8201136110428227
+R = 0
 qtr_hat = np.zeros_like(q_transp)
 qtr_hat[:d] = q_transp[:d]
-
 theta = thetas_qtr.copy()
+
 theta_hist = np.zeros((len(q_transp) - d, n_params))
 for idx, k in enumerate(range(d, len(q_transp))):
     phi = []
-    # Atrasos de q_transp
+    # Saída: atrasos previstos
     for i in range(1, n_qtr + 1):
         phi.append(q_transp[k - i])
-    # Atrasos de F_Booster
-    for i in range(1, n_F_Booster + 1):
+    # Entradas: valor atual e atrasos
+    for i in range(n_F_Booster):
         phi.append(F_Booster[k - i])
-    # Atrasos de F_bcs_1 a F_bcs_4
+    for i in range(n_ptopo):
+        phi.append(P_topo[k - i])
     for f_bcs in [F_bcs_1, F_bcs_2, F_bcs_3, F_bcs_4]:
-        for i in range(1, n_F_bcs + 1):
+        for i in range(n_F_bcs):
             phi.append(f_bcs[k - i])
-
+    for valve in [valve_1, valve_2, valve_3, valve_4]:
+        for i in range(n_valve):
+            phi.append(valve[k - i])
     phi = np.array(phi)
-
     # Previsão e erro
     qtr_hat[k] = phi @ theta
     err = q_transp[k] - qtr_hat[k]
 
     # Ganho e atualização
-    gain = (P @ phi) / (lam + phi @ P @ phi)
+    gain = (P @ phi) / (lam + phi @ P @ phi + R)
     theta += gain * err
     P = (P - np.outer(gain, phi) @ P) / lam
-
     theta_hist[idx] = theta
 
 mse_qtr = np.mean((q_transp[d:] - qtr_hat[d:])**2)
+rmse_qtr = np.sqrt(mse_qtr)
 aic = calculate_aic(len(q_transp) - d, mse_qtr, n_params)
 print(f'AIC(q_transp): {aic}')
+print(f'RMSE (q_transp): {rmse_qtr}')
 
 plt.figure(figsize=(16, 5))
-plt.plot(t, desnormalize(q_transp, q_transp_media, q_transp_std), label="CASADI)", linewidth=2)
-plt.plot(t, desnormalize(qtr_hat, q_transp_media, q_transp_std), label="ARX RECURSIVO", linestyle='--')
+plt.plot(t, desnormalize(qtr_hat, q_transp_media, q_transp_std), label="ARX RECURSIVO", linewidth=3)
+plt.plot(t, desnormalize(q_transp, q_transp_media, q_transp_std), label="CASADI)", linewidth=3, marker='.')
 plt.xlabel("Tempo / s)")
-plt.ylabel(r"Vazão Manifold / ($m^3 \cdot s^{-1}$)")
-plt.title("Vazäo Manifold")
+plt.ylabel(r"Vazão Manifold / $m^3 \cdot s^{-1}$")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
@@ -284,7 +276,6 @@ for i in range(n_params):
     plt.plot(t[d:], theta_hist[:, i], label=f'theta[{i}]')
 plt.xlabel('Tempo / s')
 plt.ylabel('Valor dos parâmetros')
-plt.title('Evolução dos parâmetros theta (Vazão Manifold)')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()

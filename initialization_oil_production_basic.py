@@ -301,7 +301,7 @@ def Sim_dynamics(n_pert, qtd_pts = 25, u0=u0,x0=x_ss, z0=z_ss):
     # Auto_plot(Lista_xf_reshaped[[2, 5, 8, 11], :], "Pressure de Fundo de Poço", 'Time/(s)', 'Pressure/(bar)', 'r')
     # Auto_plot(Lista_xf_reshaped[[3, 6, 9, 12], :], 'Pressão da Choke', 'Time/(s)', 'Pressure/(bar)', 'g')
     # Auto_plot(Lista_xf_reshaped[[4, 7, 10, 13], :], 'Vazão dos Poços', 'Time/(s)', 'Flow Rate/(m^3/h)', 'k')
-    # Auto_plot(Lista_xf_reshaped[[1], :], 'Vazão Manifold', 'Time/(s)', 'Flow Rate/(m^3/h)','y')
-    Auto_plot(Lista_xf_reshaped[[0], :], 'Pressão Manifold', 'Time/(s)', 'Pressure/(bar)', 'm')
+    Auto_plot(Lista_xf_reshaped[[1], :], 'Vazão Manifold', 'Time/ s', 'Vazão Manifold / $m^3 \cdot s^{-1}$','b')
+    Auto_plot(Lista_xf_reshaped[[0], :], 'Pressão Manifold', 'Time/ s', 'Pressão Manifold/ bar', 'm')
     # Auto_plot(Lista_zf_reshaped[[0, 2, 4, 6], :],"Pressão de Entrada BCS", 'Time/(s)', 'Pressure/(bar)', 'c')
     return Lista_xf_reshaped, Lista_zf_reshaped, Inputs, grid
