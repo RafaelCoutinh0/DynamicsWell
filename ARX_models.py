@@ -172,18 +172,18 @@ print(rmse)
 t_plot = t[-len(y_target):]
 # plt.figure(figsize=(19, 6), dpi= 300)
 # plt.plot(t_plot, desnormalize(pman_sim, pman_media, pman_std), label='ARX',linewidth=3)
-# plt.plot(t_plot, desnormalize(y_target, pman_media, pman_std), '.', label='CASADI', linewidth=3)
+# plt.plot(t_plot, desnormalize(y_target, pman_media, pman_std), label='CASADI', linewidth=3)
 # plt.ylabel(r'Pressão Manifold / Bar', fontsize=16)
 # plt.xlabel(r'Tempo / s', fontsize=16)
 # plt.legend(fontsize=16)
 # plt.show()
-#
+
 # print(f"AIC(Pman, lags ótimos): {aic}")
 # print(f"RMSE(Man, lags ótimos): {rmse}")
 
 # Após ajustar o modelo
-thetas_pman = model.coef_
-np.save('data/thetas_pman_arx.npy', thetas_pman)
+# thetas_pman = model.coef_
+# np.save('data/thetas_pman_arx.npy', thetas_pman)
 
 # Exemplo de saída:
 # Melhores Parametros qtr: {'n_qtr': 3, 'n_F_Booster': 4, 'n_ptopo': 2, 'n_F_bcs': 1, 'n_valve': 1, 'P_init': 74465.24193300933, 'lam': 0.9999964029009534}
@@ -231,16 +231,16 @@ rmse = np.sqrt(mse)
 aic = calculate_aic(len(y_target), mse, X.shape[1])
 t_plot = t[-len(y_target):]
 
-plt.figure(figsize=(19, 6), dpi= 300)
-plt.plot(t_plot, desnormalize(pman_sim, q_transp_media, q_transp_std), label='ARX',linewidth=3)
-plt.plot(t_plot, desnormalize(y_target, q_transp_media, q_transp_std), '.', label='CASADI',linewidth=3)
-plt.ylabel(r'Vazão Manifold / $m^3 \cdot s^{-1}$', fontsize=16)
-plt.xlabel(r'Tempo / s', fontsize=16)
-plt.legend(fontsize=16)
-plt.show()
-
-print(f"AIC(qtr, lags ótimos): {aic}")
-print(f"RMSE(qtr, lags ótimos): {rmse}")
-
-thetas_qtr = model.coef_
-np.save('data/thetas_qtr_arx.npy', thetas_qtr)
+# plt.figure(figsize=(19, 6), dpi= 300)
+# plt.plot(t_plot, desnormalize(pman_sim, q_transp_media, q_transp_std), label='ARX',linewidth=3)
+# plt.plot(t_plot, desnormalize(y_target, q_transp_media, q_transp_std), label='CASADI',linewidth=3)
+# plt.ylabel(r'Vazão Manifold / $m^3 \cdot s^{-1}$', fontsize=16)
+# plt.xlabel(r'Tempo / s', fontsize=16)
+# plt.legend(fontsize=16)
+# plt.show()
+#
+# print(f"AIC(qtr, lags ótimos): {aic}")
+# print(f"RMSE(qtr, lags ótimos): {rmse}")
+#
+# thetas_qtr = model.coef_
+# np.save('data/thetas_qtr_arx.npy', thetas_qtr)
