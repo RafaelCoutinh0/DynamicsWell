@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59265ed9-e1b9-4d46-b70b-d4119067e523" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARX_Recursivo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ARX_Recursivo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARX_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ARX_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARXvsCasadi.py" beforeDir="false" afterPath="$PROJECT_DIR$/ARXvsCasadi.py" afterDir="false" />
-    </list>
+    <list default="true" id="59265ed9-e1b9-4d46-b70b-d4119067e523" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +86,7 @@
       <workItem from="1752515021663" duration="3052000" />
       <workItem from="1752617572585" duration="4730000" />
       <workItem from="1752622401567" duration="2456000" />
-      <workItem from="1752625225407" duration="2351000" />
+      <workItem from="1752625225407" duration="2965000" />
     </task>
     <servers />
   </component>
